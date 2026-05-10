@@ -1,5 +1,24 @@
 # announcements
 
+Bu ağ isteği, KAP ana sayfasındaki "Genel Mektuplar" ve "Duyurular" bölümlerini doldurmak için kullanılan içerik servisidir.
+
+## Analiz
+
+- **Amaç:** MKK veya SPK tarafından yayımlanan resmi genel mektupları ve sistem duyurularını listelemek.
+- **İçerik:** Yanıt iki ana kategoriye ayrılmıştır:
+  - **Genel Mektuplar:** 2026 yılı finansal rapor tarihleri ve hizmet bedelleri gibi operasyonel konuları içerir.
+  - **Duyurular:** Kurumsal yönetim tebliğleri ve site güncellemeleri gibi genel bilgilendirmeleri kapsar.
+- **Performans:** İstek toplamda 35 ms sürmüştür. Waiting for server response (TTFB) süresinin 18 ms olması, sunucunun veriyi anında döndürdüğünü gösterir.
+
+## Teknik Notlar
+
+- **Önbellek (Caching):** Cache-Control: max-age=1800,public başlığı sayesinde veri 30 dakika boyunca tarayıcıda saklanır. Age: 1138 değeri, bu verinin yaklaşık 19 dakikadır sunucu önbelleğinde hazır beklediğini teyit eder.
+- **Veri Bağlantısı:** Her duyurunun detayına gitmek için staticPagefileOid alanı anahtar kimlik (ID) olarak kullanılmaktadır.
+
+## Kök Neden
+
+İstek başarılıdır ve beklenen verileri eksiksiz getirmiştir. Herhangi bir darboğaz tespit edilmemiştir.
+
 ## Request
 
 curl 'https://www.kap.org.tr/tr/api/home-data/announcements' \

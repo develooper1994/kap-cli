@@ -1,5 +1,16 @@
 # popup
 
+Bu istek, KAP web sitesinde kullanıcıya gösterilmesi gereken aktif açılır pencere (popup) duyurularını kontrol eder.
+
+## Analiz
+
+- **Amaç:** Site genelindeki önemli duyuruları, uyarıları veya bilgilendirme mesajlarını içeren veriyi çekmek.
+- **Durum:** İstek başarılıdır (200 OK), ancak yanıt gövdesi boş bir dizi ([]) döner. Bu, şu an için gösterilmesi gereken aktif bir popup olmadığını ifade eder.
+- **Hız:** Toplam 36 ms süren bu işlem oldukça verimlidir; sunucu tarafında hızlıca işlenmiştir.
+- **Kök Neden:** Yanıtın boş olması bir hata değildir; sistemde o an için tanımlanmış veya tarihsel olarak aktif bir popup mesajı bulunmamaktadır.
+
+- **Öneri:** Eğer bir popup görünmesi bekleniyorsa, sunucu tarafındaki aktiflik tarihlerini veya içerik yönetim sistemindeki (CMS) yayınlanma durumunu kontrol edin.
+
 ## Request
 
 curl 'https://www.kap.org.tr/tr/api/popup' \

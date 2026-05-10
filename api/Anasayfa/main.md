@@ -2,12 +2,23 @@
 
 ## Tanıtım
 
-Bu ağ isteği, Kamuyu Aydınlatma Platformu (KAP) ana sayfasındaki güncel bildirim listesini (disclosure list) çekmek için kullanılan bir API çağrısıdır.
+- Bu ağ isteği, KAP ana sayfasındaki güncel bildirimlerin (kap açıklamalarının) listesini çekmek için kullanılan temel API servisidir.
+- Bu ağ isteği, Kamuyu Aydınlatma Platformu (KAP) ana sayfasındaki güncel bildirim listesini (disclosure list) çekmek için kullanılan bir API çağrısıdır.
+- Neden Çağrılıyor? Kullanıcı ana sayfaya girdiğinde veya sayfayı yenilediğinde, piyasadaki en son şirket haberlerini, finansal raporları ve özel durum açıklamalarını anlık olarak göstermek için bu servis tetiklenir. Yanıt içeriğinde "SPK Bülteni", "Finansal Rapor" ve "Kredi Derecelendirmesi" gibi gerçek zamanlı borsa verileri yer almaktadır.
 
+## Analiz
 
-Neden Çağrılıyor? Kullanıcı ana sayfaya girdiğinde veya sayfayı yenilediğinde, piyasadaki en son şirket haberlerini, finansal raporları ve özel durum açıklamalarını anlık olarak göstermek için bu servis tetiklenir. Yanıt içeriğinde "SPK Bülteni", "Finansal Rapor" ve "Kredi Derecelendirmesi" gibi gerçek zamanlı borsa verileri yer almaktadır.
+- **Amaç:** Borsada işlem gören şirketlerin yaptığı son açıklamaları (disclosure) listelemek.
+- **Durum:** İstek 200 OK ile başarılı dönmüş ancak yanıt gövdesi boş bir dizi ([]) içermektedir.
+- **Zamanlama:** Toplam 64 ms sürerek oldukça hızlı yanıt vermiştir.
+- **Önbellek:** Cache-Control: private başlığı, bu verinin kişiye özel veya dinamik olduğunu, ara sunucularca (CDN) önbelleğe alınmaması gerektiğini gösterir.
 
+## Olası Sorun ve Kök Neden
 
+- **Kök Neden:** Yanıtın boş ([]) dönmesi, o anki filtre kriterlerine (tarih aralığı, şirket tipi vb.) uygun yeni bir bildirimin olmadığını veya istek gövdesindeki (payload) parametrelerin eksik/hatalı gönderildiğini gösterir. Pazar günü yapılan bir istek olduğu için borsanın kapalı olması nedeniyle yeni veri akışı durmuş olabilir.
+- **Öneriler:**
+- **Payload Kontrolü:** İstek ile gönderilen JSON gövdesindeki tarih aralığını veya filtreleri kontrol edin.
+- **Hata Yönetimi:** Arayüzde "Bildirim bulunamadı" gibi bir kullanıcı bilgilendirmesi yapıldığından emin olun.
 
 ## Request
 
