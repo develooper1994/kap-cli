@@ -2,7 +2,7 @@
 
 Bu ağ isteği, Kamu Aydınlatma Platformu (KAP) web sitesinin "Hakkında" veya "PDP" (Public Disclosure Platform) menü yapısını oluşturmak için kullanılan bir API çağrısıdır.
 
-## Analiz:
+## Analiz
 
 - **Amaç:** Sunucudan İngilizce dilindeki menü başlıklarını ("General Information", "Related Web Links") ve bunlara ait yönlendirme yollarını içeren JSON verisini çekmek.
 - **Durum:** 200 OK kodu, verinin başarıyla alındığını gösterir.
@@ -19,16 +19,15 @@ Herhangi bir performans sorunu veya hata saptanmamıştır. İstek ideal şekild
 
 ## Request
 
-curl 'https://www.kap.org.tr/en/api/menu/about-pdp' \
+curl 'https://www.kap.org.tr/tr/api/menu/about-pdp' \
   -H 'Accept: */*' \
-  -H 'Accept-Language: en' \
+  -H 'Accept-Language: tr' \
   -H 'Cache-Control: max-age=0' \
   -H 'Connection: keep-alive' \
   -H 'Content-Type: application/json' \
-  -b '_ga=GA1.1.1580744861.1771666924; NSC_xxx.lbq.psh.us_tjuf_ejt=7ce2a3d9ddad9f0439920efb260b36acad4a64f3df2ef79bda6c88b7f8de60bb9ae4e5ca; client-ip=176.234.129.110; AGVY-Cookie=MDMAAA4A0lXwSwAAAACw6oFuCksAai3FSpkelF8UzLjYz-oDLWrQFEgLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIaJTslFrIwM_-rlurnobK0XTzhYC0sAagAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJPY7Hc3oKUmdG5n1tC62tpUCbJE; KAP=AA47CksAajv3Rk0AAAAAADsUL9ZOBg_0wi2-O4NRJy7WEOkObmPiwRIWEldg1kXWOw==PEwAag==scmLPQjRedineP9oNTMvWPxiY5Q=; _ga_L21W6S1YS4=GS2.1.s1778402398$o16$g1$t1778404106$j55$l0$h0' \
   -H 'DNT: 1' \
-  -H 'If-None-Match: "KXBBPGFIFNWPRNYY"' \
-  -H 'Referer: https://www.kap.org.tr/en' \
+  -H 'If-None-Match: "KXBBPGFIFNNNXKXY"' \
+  -H 'Referer: https://www.kap.org.tr/tr' \
   -H 'Sec-Fetch-Dest: empty' \
   -H 'Sec-Fetch-Mode: cors' \
   -H 'Sec-Fetch-Site: same-origin' \
@@ -60,4 +59,69 @@ curl 'https://www.kap.org.tr/en/api/menu/about-pdp' \
     "menuItself": "single",
     "menuOrigin": "KH"
   }
+]
+
+- Diğer Response:
+
+[
+    {
+        "id": "8a019492945fbe080194ac9d67b626dd",
+        "menuTitle": "Mevzuat, Duyurular ve Kılavuzlar",
+        "menuUrl": "mevzuat-duyurular-ve-kilavuzlar",
+        "menuOrder": 1,
+        "menuLang": "TR",
+        "urlStatus": "IN",
+        "menuItself": "multi",
+        "menuOrigin": "KH"
+    },
+    {
+        "id": "8a019492945fbe080194acb44eba270b",
+        "menuTitle": "Sertifika İşlemleri",
+        "menuUrl": "sertifika-islemleri",
+        "menuOrder": 2,
+        "menuLang": "TR",
+        "urlStatus": "IN",
+        "menuItself": "single",
+        "menuOrigin": "KH"
+    },
+    {
+        "id": "8a019492945fbe080194acb46418270c",
+        "menuTitle": "Genel Bilgi",
+        "menuUrl": "genel-bilgi",
+        "menuOrder": 3,
+        "menuLang": "TR",
+        "urlStatus": "IN",
+        "menuItself": "single",
+        "menuOrigin": "KH"
+    },
+    {
+        "id": "8a019492945fbe080194acb474d7270d",
+        "menuTitle": "Sermaye Piyasası Aracı Alım Satım Bildirimi",
+        "menuUrl": "https://eyatirimci.mkk.com.tr/auth/login",
+        "menuOrder": 4,
+        "menuLang": "TR",
+        "urlStatus": "EX",
+        "menuItself": "single",
+        "menuOrigin": "KH"
+    },
+    {
+        "id": "8a019492945fbe080194acb406f0270a",
+        "menuTitle": "KVKK Kapsamında Düzeltilmiş Bildirimler",
+        "menuUrl": "kvkk-kapsaminda-duzeltilmis-bildirimler",
+        "menuOrder": 5,
+        "menuLang": "TR",
+        "urlStatus": "IN",
+        "menuItself": "single",
+        "menuOrigin": "KH"
+    },
+    {
+        "id": "8a019492945fbe080194b231499a45a4",
+        "menuTitle": "İlgili Linkler",
+        "menuUrl": "ilgili-linkler",
+        "menuOrder": 6,
+        "menuLang": "TR",
+        "urlStatus": "IN",
+        "menuItself": "single",
+        "menuOrigin": "KH"
+    }
 ]
