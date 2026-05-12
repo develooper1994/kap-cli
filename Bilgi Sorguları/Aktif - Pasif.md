@@ -1,7 +1,7 @@
 # Aktif - Pasif
 
 - url: https://www.kap.org.tr/tr/api/company/items/{memberTypes}/{state}
-- Şirket Grubu(memberTypes): Yatırım Kuruluşları(YK), Portföy Yönetim Şirketleri(PYS)
+- Şirket Grubu(memberTypes): Yatırım Kuruluşları(YK), Portföy Yönetim Şirketleri(PYS), Derecelendierme Şirketleri(DCS), Bağımsız Denetim Kuruluşları(BDK), Düzenleyici Denetleyici Kurumlar(DDK), Diğer Kap Üyeleri(DK), Kripto Varlık Sağlayıcı(KVH)
 - state: Aktif şirketler için A, Pasif şirketler için P kullanılır.
 - Yanıtlar çok uzun olabiliyor.
 

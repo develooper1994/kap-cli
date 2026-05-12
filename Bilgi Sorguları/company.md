@@ -46,19 +46,20 @@ Belki Aktif-Pasif servislerinden de alınabilir.
 
 - Arama bitiş tarihi. Format: YYYY-MM-DD
 
-### Beklenen Bildirim Kriterleri(IGS)
+### Beklenen Bildirim Kriterleri
 
-DAHA TAMAMLANMADI
+> curl 'https://www.kap.org.tr/tr/beklenen-bildirim-sorgu' -X POST \
+   -H 'Content-Type: application/json;charset=UTF-8' \
+   -H 'Referer: https://www.kap.org.tr/tr/beklenen-bildirim-sorgu' \
+   -H 'Origin: https://www.kap.org.tr' \
+   -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' \
+   --data-raw '{}' > beklenen-bildirim-sorgu.html
 
-#### Sektör
+- Maalesef burada hiçbir servis çağrısı yok. nextjs ile çağrıları server side render yaparak yapıyor. bu yüzden tüm veriler html parse ile elde edilebilir.
+[Aktif - Pasif](Aktif%20-%20Pasif.md) servisleri de buna alternatif olabilir ama bu servisler İşlem Gören Şirketlerin listesini vermiyor.
+- Arayüzde her şirket grubu için farklı parametre grubu görünüyor.
 
-#### Pazar
-
-#### Endeks
-
-#### Bildirim Tipi
-
-#### Konu
+> IGS için Sektör, Pazar, Endeks, Bildirim Tipi, Konu gibi filtreler var. Diğer şirket gruplarında bu filtreler değişiyor.
 
 ### Beklenen Bildirim Kriterleri(YK)
 
